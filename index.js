@@ -2,11 +2,11 @@ import { pushStateLocationPlugin, servicesPlugin, UIRouter } from '@uirouter/cor
 import { Visualizer } from '@uirouter/visualizer';
 import { naiveClearRenderedDom, naiveRenderIntoDom } from './render';
 
-exports.bootstrap = function() {
+export function bootstrap() {
     return Promise.resolve();
 }
 
-exports.mount = function() {
+export function mount() {
     const promise = new Promise((resolve) => {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', '/page1.html');
@@ -20,11 +20,11 @@ exports.mount = function() {
     });
 
     return promise.then(content =>
-        document.getElementById('content').innerHTML = 'TEST'
+        document.getElementById('content').innerHTML = 'TEST 2'
     );
 }
 
-exports.unmount = function() {
+export function unmount() {
     return Promise.resolve()
         .then(() => document.getElementById('content').innerHTML = '');
 }
