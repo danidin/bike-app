@@ -16,7 +16,7 @@ exports.mount = function() {
     });
 
     return promise.then(content =>
-        document.getElementById('content').innerHTML = content
+        document.getElementById('content').innerHTML = 'TEST'
     );
 }
 
