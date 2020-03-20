@@ -1,20 +1,18 @@
-import { createRouter } from './router';
+import { BikeApp } from './bike-app';
 
 export function bootstrap() {
   return Promise.resolve();
 }
 
 export function mount() {
-  // window.router = createRouter();
-  createRouter();
+  customElements.define('bike-app', BikeApp);
   return Promise.resolve()
-    .then(() => document.getElementById('content').innerHTML = '<ui-view id="root"></ui-view>');
+    .then(() => document.getElementById('content').innerHTML = '<bike-app></bike-app>');
 }
 
 export function unmount() {
   return Promise.resolve()
     .then(() => {
-      // delete window.router;
       document.getElementById('content').innerHTML = '';
     });
 }
