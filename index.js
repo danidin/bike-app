@@ -5,7 +5,8 @@ export function bootstrap() {
 }
 
 export function mount() {
-  window.router = createRouter();
+  // window.router = createRouter();
+  createRouter();
   return Promise.resolve()
     .then(() => document.getElementById('content').innerHTML = '<ui-view id="root"></ui-view>');
 }
@@ -13,7 +14,7 @@ export function mount() {
 export function unmount() {
   return Promise.resolve()
     .then(() => {
-      delete window.router;
+      // delete window.router;
       document.getElementById('content').innerHTML = '';
     });
 }
