@@ -14,6 +14,22 @@ export class BikeApp extends HTMLElement {
 
   connectedCallback() {
     console.log('bike-app custom element connected with window', window);
+
     this.router = createRouter(this.shadowRoot);
+
+    this.shadowRoot.addEventListener('click', event => {
+      const path = event.path[0].dataset.path;
+      if (path) {
+        this.navigate(path);
+      }
+    });
+
+    this.addEventListener('navigate', (event) => {
+      this.router.stateService.go(event.detail.path);
+    });
+  }
+
+  navigate(path) {
+    this.dispatchEvent(new CustomEvent('navigate', { detail: { path }}));
   }
 }

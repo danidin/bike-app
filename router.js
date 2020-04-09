@@ -31,8 +31,8 @@ export function createRouter(shadowRoot) {
   });
 
   // Register states
-  router.stateRegistry.register({ name: 'intro', url: '/bike-app', html:  'INTRO <a href="javascript:void(0)" onclick="router.stateService.go(\'page1\')">page 1</a>' });
-  router.stateRegistry.register({ name: 'page1', url: '/bike-app/page1', html: 'PAGE 1 <a href="javascript:void(0)" onclick="router.stateService.go(\'intro\')">back to intro</a>' });
+  router.stateRegistry.register({ name: 'intro', url: '/bike-app', html:  'INTRO <a href="javascript:void(0)" data-path="page1">page 1</a>' });
+  router.stateRegistry.register({ name: 'page1', url: '/bike-app/page1', html: 'PAGE 1 <a href="javascript:void(0)" data-path="intro">back to intro</a>' });
 
   // Start the router
   router.trace.enable(1);
